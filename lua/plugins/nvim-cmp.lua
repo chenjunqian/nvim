@@ -20,6 +20,10 @@ return {
                     cmp.select_next_item()
                     -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
                     -- this way you will only jump inside the snippet region
+                elseif vim.fn.exists('b:_codeium_completions') ~= 0 then
+                    -- accept codeium completion if visible
+                    vim.api.nvim_input(vim.fn['codeium#Accept']())
+                    fallback()
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
                 elseif has_words_before() then
