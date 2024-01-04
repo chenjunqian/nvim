@@ -8,6 +8,7 @@ local opts = { noremap = true, silent = true }
 keymap.set("n", "L", "$", opts)
 keymap.set("n", "H", "^", opts)
 
+keymap.del("n","<Leader>/")
 -- LSP
 keymap.del("n","<Leader>l")
 keymap.set("n", "<Leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
